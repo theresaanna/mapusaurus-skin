@@ -10,6 +10,7 @@ $(document).ready(function() {
         map = L.map('map').setView([lat, lon], 13);
         L.tileLayer('http://a.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
         tract = L.polygon(census.features[0].geometry.coordinates[0][0]).addTo(map);
+        L.marker([lat, lon]).addTo(map);
     };
 
     $.ajax({
