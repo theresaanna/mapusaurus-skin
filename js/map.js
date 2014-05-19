@@ -3,10 +3,12 @@ $(document).ready(function() {
         var census = JSON.parse(censusjson),
             lat = parseFloat(census.features[0].properties.intptlat),
             lon = parseFloat(census.features[0].properties.intptlon),
-            map;
+            map,
+            tract;
         console.log(census);
 
         map = L.map('map').setView([lat, lon], 13);
+        tract = L.polygon(census.features[0].geometry.coordinates[0][0]).addTo(map);
     };
 
     $.ajax({
